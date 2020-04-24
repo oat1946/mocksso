@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>mockSSO</title>
+    <meta name="description" content="Simulate SSO">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>{{css}}</style>
+  </head>
+  <body>
+    <div class="row">
+      <h3>Choose an account:</h3>
+    </div>
+    {{#each users}}
+    <div class="row">
+      <button id="user-{{this}}" class="long" onClick="submit()">{{this}}</button>
+    </div>
+    {{/each}}
+    <form class="hidden" id="loginForm" method="POST" action="/login">
+      <input id="userID" type="text" name="userID">
+      <input id="originalUrl" type="text" name="originalUrl">
+    </form>
+  </body>
+  <script>
+    const f = document.getElementById("loginForm")
+
+    const originalUrl = document.getElementById("originalUrl")
+    const urlParams = new URLSearchParams(window.location.search)
+    originalUrl.value = urlParams.get("originalUrl")
+
+    const userID = document.getElementById("userID")
+
+    function submit() {
+      userID.value = event.target.innerHTML
+      f.submit()
+    }
+  </script>
+</html>

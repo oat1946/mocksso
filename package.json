@@ -1,0 +1,48 @@
+{
+  "_args": [
+    [
+      "git+ssh://git@gitlab.hiqfood.dev:kitinon/mocksso.git",
+      "C:\\Users\\aticom\\Project\\wf0"
+    ]
+  ],
+  "_from": "git+ssh://git@gitlab.hiqfood.dev:kitinon/mocksso.git",
+  "_id": "mocksso@git+ssh://git@gitlab.hiqfood.dev:kitinon/mocksso.git#e2612a7e5b4281e12146108bdff75260dea321eb",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/mocksso",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "git+ssh://git@gitlab.hiqfood.dev:kitinon/mocksso.git",
+    "rawSpec": "git+ssh://git@gitlab.hiqfood.dev:kitinon/mocksso.git",
+    "saveSpec": "git+ssh://git@gitlab.hiqfood.dev:kitinon/mocksso.git",
+    "fetchSpec": "git@gitlab.hiqfood.dev:kitinon/mocksso.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+ssh://git@gitlab.hiqfood.dev:kitinon/mocksso.git#e2612a7e5b4281e12146108bdff75260dea321eb",
+  "_spec": "git+ssh://git@gitlab.hiqfood.dev:kitinon/mocksso.git",
+  "_where": "C:\\Users\\aticom\\Project\\wf0",
+  "author": "",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "hbs": "^4.1.1",
+    "session-file-store": "^1.4.0"
+  },
+  "description": "",
+  "devDependencies": {
+    "mocha": "^7.1.1",
+    "nodemon": "^2.0.3"
+  },
+  "license": "ISC",
+  "main": "index.js",
+  "name": "mocksso",
+  "scripts": {
+    "test": "nodemon -e js,hbs test/test.js"
+  },
+  "version": "1.0.0"
+}
