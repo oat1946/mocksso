@@ -3,8 +3,8 @@ const router = require('express').Router()
 const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 const bodyParser = require('body-parser')
- 
-const fileStoreOptions = {logFn: _=>{}}
+
+const fileStoreOptions = { logFn: _ => { } }
 
 let users
 
@@ -13,7 +13,18 @@ module.exports = x => {
     'requestor@hiqfood.org',
     'approver@hiqfood.org',
     'accountants@hiqfood.org',
-    'treasurers@hiqfood.org'
+    'treasurers@hiqfood.org',
+    '----------------------',
+    'admin@hiqfood.org',
+    'chaya@hiqfood.org',
+    'kantanop@hiqfood.org',
+    'chaba@hiqfood.org',
+    'prapasri@hiqfood.org',
+    'ttuser@hiqfood.org',
+    'expuser@hiqfood.org',
+    'ttmanager@hiqfood.org',
+    'expmanager@hiqfood.org'
+
   ]
   return router
 }
@@ -35,34 +46,34 @@ router.use(session({
 
 router.use(bodyParser.urlencoded({ extended: true }))
 router.use(bodyParser.json())
- 
-router.get('/login', (_, res)=>{
-  res.render(`${__dirname}/views/login.hbs`, {users, css})
+
+router.get('/login', (_, res) => {
+  res.render(`${__dirname}/views/login.hbs`, { users, css })
 })
 
-router.post('/login', (req, res)=>{
+router.post('/login', (req, res) => {
   req.session.userID = req.body.userID
   res.redirect(req.body.originalUrl)
 })
 
-router.get('/logout', (req, res)=>{
+router.get('/logout', (req, res) => {
   const user = req.session.userID
   if (user)
-    res.render(`${__dirname}/views/logout.hbs`, {user, css})
+    res.render(`${__dirname}/views/logout.hbs`, { user, css })
   else {
     const message = 'You are not logged-in.'
-    res.render(`${__dirname}/views/message.hbs`, {message, css})
+    res.render(`${__dirname}/views/message.hbs`, { message, css })
   }
 })
 
-router.post('/logout', (req, res)=>{
-  req.session.destroy(err=>{
+router.post('/logout', (req, res) => {
+  req.session.destroy(err => {
     if (err) res.status(500).send('Error logging out.')
     else {
       const message = 'You have sucessfully logged-out.'
-      res.render(`${__dirname}/views/message.hbs`, {message, css})
+      res.render(`${__dirname}/views/message.hbs`, { message, css })
     }
-  })  
+  })
 })
 
 router.use((req, res, next) => {
